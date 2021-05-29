@@ -1,0 +1,37 @@
+# .github/workflows/release.yaml
+
+on:
+  push:
+    branches:
+      - main
+
+name: Build Production Artifact
+
+#defaults:
+#  run:
+#    working-directory: /home/runner/work/frs/frs/go/src/github.com/frsapp/frs
+#env:
+#  GOPATH: /home/runner/work/frs/frs/go
+jobs:
+  releases-matrix:
+    name: Release Go Binary
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        # build and publish in parallel: linux/386, linux/amd64, windows/386, windows/amd64, darwin/amd64
+        goos: [linux, windows, darwin]
+        goarch: ["386", amd64]
+        exclude:
+          - goarch: "386"
+            goos: darwin
+    steps:
+      - uses: actions/checkout@v2
+      - uses: wangyoucao577/go-release-action@v1.17
+        with:
+          github_token: ${{ secrets.GH_TOKEN }}
+          goos: ${{ matrix.goos }}
+          project_path: "./cmd/corsy"
+          goarch: ${{ matrix.goarch }}
+          md5sum: false
+          binary_name: "corsy"
+          asset_name: corsy-${{ matrix.goos }}-${{ matrix.goarch }}
