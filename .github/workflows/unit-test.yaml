@@ -1,4 +1,4 @@
-name: Test Corsy
+name: Build
 on: [push, pull_request]
 jobs:
   run:
@@ -18,3 +18,6 @@ jobs:
 
       - name: Unit Test
         run: make test
+
+      - name: Unit Test
+        run: make build
