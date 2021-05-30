@@ -41,3 +41,7 @@ corsy --addr ":8080" --proxy https://prod.example.com/api/v1/resource  \
 --blacklist X-Remote-Url 
 
 ```
+
+
+
+<h7>Made out of need, will help some of you - Siv 🧑🏻‍💻 </h7>
