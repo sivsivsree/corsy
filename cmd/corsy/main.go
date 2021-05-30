@@ -16,21 +16,8 @@ func main() {
 
 	logger := logrus.New()
 	logger.Out = os.Stdout
-	//logger.Formatter = &logrus.JSONFormatter{}
 
-	c := corsy.Config{
-		MaxRedirects: 10,
-		Timeout:      15,
-		ListenAddr:   ":8001",
-		HopHeaders: []string{
-			"Connection",
-			"Keep-Alive",
-			"Public",
-			"Proxy-Authenticate",
-			"Transfer",
-			"Upgrade",
-		},
-	}
+	c := corsy.DefaultConfig()
 
 	pflag.StringVarP(&c.ListenAddr, "addr", "a", "", "Local address:port to listen on. Default: :8080 ")
 	pflag.StringVarP(&c.Remote, "proxy", "p", "", "Remote address to proxy with cors")
