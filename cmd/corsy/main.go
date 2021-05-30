@@ -44,6 +44,6 @@ func main() {
 		os.Exit(0)
 	}
 
-	_ = corsy.NewClient(logger, &c).Start()
+	_ = corsy.NewClient(logger, c).Start()
 
 }
