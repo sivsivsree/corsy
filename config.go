@@ -1,6 +1,6 @@
 package corsy
 
-// Config is used to store corsy inital configurations
+// Config is used to store corsy initial configurations
 type Config struct {
 	HopHeaders      []string
 	HeaderBlacklist []string
