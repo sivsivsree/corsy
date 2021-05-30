@@ -11,16 +11,6 @@ import (
 	"github.com/sirupsen/logrus"
 )
 
-type Config struct {
-	HopHeaders      []string
-	HeaderBlacklist []string
-	MaxRedirects    int
-	Timeout         int
-	ListenAddr      string
-
-	Remote string
-}
-
 type Client struct {
 	*http.Client
 
