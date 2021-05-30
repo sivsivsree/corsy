@@ -3,7 +3,7 @@
 ### CORS injector proxy for development
 [![Build](https://github.com/sivsivsree/corsy/actions/workflows/unit-test.yaml/badge.svg)](https://github.com/sivsivsree/corsy/actions/workflows/unit-test.yaml) [![Go Report Card](https://goreportcard.com/badge/github.com/sivsivsree/corsy)](https://goreportcard.com/report/github.com/sivsivsree/corsy)
 
-Corsy is a proxy injector for development to avoid CORS issues while building SPA applicaitons.
+Corsy is a proxy injector for development to avoid CORS issues while building SPA applications.
 
 
 <b>Install</b>
