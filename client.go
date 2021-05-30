@@ -7,19 +7,23 @@ import (
 	"net/url"
 	"strings"
 	"time"
-
-	"github.com/sirupsen/logrus"
 )
+
+type Log interface {
+	Infof(format string, args ...interface{})
+	Warnf(format string, args ...interface{})
+	Errorf(format string, args ...interface{})
+}
 
 type Client struct {
 	*http.Client
 
 	srv    *http.Server
 	config *Config
-	log    *logrus.Logger
+	log    Log
 }
 
-func NewClient(logger *logrus.Logger, config *Config) *Client {
+func NewClient(logger Log, config *Config) *Client {
 
 	c := &Client{
 		config: config,
@@ -76,7 +80,7 @@ func (c *Client) handleCORS(w http.ResponseWriter, req *http.Request) {
 		nreq.Header.Set(key, req.Header.Get(key))
 	}
 
-	c.log.Info("Request Proxied -> /" + p)
+	c.log.Infof("Request Proxied -> / %s", p)
 	resp, err := c.Do(nreq)
 	if err != nil {
 		w.WriteHeader(http.StatusInternalServerError)
