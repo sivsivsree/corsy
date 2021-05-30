@@ -6,11 +6,6 @@ on:
 
 name: Build Production Artifact
 
-#defaults:
-#  run:
-#    working-directory: /home/runner/work/frs/frs/go/src/github.com/frsapp/frs
-#env:
-#  GOPATH: /home/runner/work/frs/frs/go
 jobs:
   releases-matrix:
     name: Release Go Binary
