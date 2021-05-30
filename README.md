@@ -44,5 +44,5 @@ corsy --addr ":8080" --proxy https://prod.example.com/api/v1/resource  \
 <br>
 <br>
 
-> Do contribute and <a href="https://github.com/sivsivsree/corsy/issues/new">create issue</a> if you feel something needs to be changed. <br>
+> Do contribute and <a href="https://github.com/sivsivsree/corsy/issues/new?assignees=&labels=&template=feature_request.md&title=">create issue</a> if you feel something needs to be changed. <br>
 > <h7>Made out of need, will help some of you - Siv 🧑🏻‍💻 </h7>
