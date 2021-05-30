@@ -10,6 +10,8 @@ import (
 	"github.com/spf13/pflag"
 )
 
+const VERSION = "v0.0.2"
+
 func main() {
 
 	logger := logrus.New()
@@ -30,22 +32,29 @@ func main() {
 		},
 	}
 
-	pflag.StringVarP(&c.ListenAddr, "addr", "a", c.ListenAddr, "address:port to listen on :8080 ")
-	pflag.StringVarP(&c.Remote, "proxy", "p", c.Remote, "remote address to proxy with cors")
+	pflag.StringVarP(&c.ListenAddr, "addr", "a", "", "Local address:port to listen on. Default: :8080 ")
+	pflag.StringVarP(&c.Remote, "proxy", "p", "", "Remote address to proxy with cors")
 
 	pflag.StringSliceVarP(&c.HeaderBlacklist, "blacklist", "b", c.HeaderBlacklist, "Headers to remove from the request and response")
 	pflag.IntVarP(&c.MaxRedirects, "max-redirects", "r", c.MaxRedirects, "Maximum number of redirects to follow")
 	pflag.IntVarP(&c.Timeout, "timeout", "t", c.Timeout, "Request timeout")
 
 	help := pflag.BoolP("help", "h", false, "Show this message")
+	version := pflag.BoolP("version", "v", false, "Corsy version and information")
 
 	pflag.Parse()
 
-	if *help || pflag.NArg() != 0 {
-		fmt.Fprintf(os.Stderr, "Usage: corsy [OPTIONS]\n")
+	if *version {
+		fmt.Println(VERSION + "")
+		os.Exit(0)
+	}
+
+	if *help || pflag.NArg() != 0 || c.ListenAddr == "" {
+		fmt.Fprintf(os.Stderr, "corsy [help] 📖 \n")
 		fmt.Fprintf(os.Stderr, "\nOptions:\n")
 		pflag.PrintDefaults()
-		os.Exit(1)
+		fmt.Fprintf(os.Stderr, "\n")
+		os.Exit(0)
 	}
 
 	_ = corsy.NewClient(logger, &c).Start()
