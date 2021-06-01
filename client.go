@@ -104,6 +104,8 @@ func (c *Client) handleCORS(w http.ResponseWriter, req *http.Request) {
 
 	w.Header().Set("Access-Control-Allow-Origin", "*")
 	w.Header().Set("Access-Control-Expose-Headers", strings.Join(expose, ","))
+	w.Header().Set("Access-Control-Allow-Methods", "GET, POST, PATCH, PUT, DELETE, OPTIONS")
+	w.Header().Set("Access-Control-Allow-Headers", "*")
 	w.Header().Set("X-Request-URL", u.String())
 	w.Header().Set("X-Final-URL", resp.Request.URL.String())
 
