@@ -3,7 +3,7 @@ before:
     - go mod download
     
 builds:
-  - main: cmd/corsy/main.go
+  - main: ./cmd/corsy/main.go
     goos:
       - linux
       - darwin
