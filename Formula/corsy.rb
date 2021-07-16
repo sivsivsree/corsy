@@ -5,29 +5,29 @@
 class Corsy < Formula
   desc "Corsy is a proxy injector for development to avoid CORS issues while building SPA applications.."
   homepage "https://github.com/sivsivsree/corsy#corsy"
-  version "0.1.2"
+  version "1.0.0"
   license "MIT"
   bottle :unneeded
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/sivsivsree/corsy/releases/download/v0.1.2/corsy_0.1.2_darwin_amd64.tar.gz"
-      sha256 "e5db12b8ad414577cb1cd0173b6d9224ca426216fb0617784cc735583379d9a9"
+      url "https://github.com/sivsivsree/corsy/releases/download/v1.0.0/corsy_1.0.0_darwin_amd64.tar.gz"
+      sha256 "c2a31b8c30217e339ac90b44c3daee5f2907b6a3f3bd891d96ccc94f1acfa17b"
     end
     if Hardware::CPU.arm?
-      url "https://github.com/sivsivsree/corsy/releases/download/v0.1.2/corsy_0.1.2_darwin_arm64.tar.gz"
-      sha256 "be857bb34cd0e28cac9d3a1d7f9ec7c442e1db0fc3628a5bdda1dab697a276ee"
+      url "https://github.com/sivsivsree/corsy/releases/download/v1.0.0/corsy_1.0.0_darwin_arm64.tar.gz"
+      sha256 "fbd6929250ac3912346e8ada42b383303026abe0e9e9d26e70ad545ddaa6f28a"
     end
   end
 
   on_linux do
     if Hardware::CPU.intel?
-      url "https://github.com/sivsivsree/corsy/releases/download/v0.1.2/corsy_0.1.2_linux_amd64.tar.gz"
-      sha256 "e0d6f0eefa4d1dc2f04b59e9b9319054f973bab2b604bec04ccfcf3f97daf0a8"
+      url "https://github.com/sivsivsree/corsy/releases/download/v1.0.0/corsy_1.0.0_linux_amd64.tar.gz"
+      sha256 "7f54a8f134f8201fb6c40637cfa16f110fb11a3375e3e22573a0b6a309f7cbf0"
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/sivsivsree/corsy/releases/download/v0.1.2/corsy_0.1.2_linux_arm64.tar.gz"
-      sha256 "3ae30574c4a5ad790631b898ede0ff67647837e9c3f33cc453481e65c838e583"
+      url "https://github.com/sivsivsree/corsy/releases/download/v1.0.0/corsy_1.0.0_linux_arm64.tar.gz"
+      sha256 "43c9465c4cf0491983fde8165adcdf3604a1d26e30d2ccb151aa8ce05f75974b"
     end
   end
 
