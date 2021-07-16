@@ -10,7 +10,7 @@ import (
 	"github.com/spf13/pflag"
 )
 
-const VERSION = "v0.0.2"
+const VERSION = "v0.0.3"
 
 func main() {
 
@@ -19,7 +19,7 @@ func main() {
 
 	c := corsy.DefaultConfig()
 
-	pflag.StringVarP(&c.ListenAddr, "addr", "a", "", "Local address:port to listen on. Default: :8080 ")
+	pflag.StringVarP(&c.ListenAddr, "addr", "a", ":8080", "Local address:port to listen on. Default: :8080 ")
 	pflag.StringVarP(&c.Remote, "proxy", "p", "", "Remote address to proxy with cors")
 
 	pflag.StringSliceVarP(&c.HeaderBlacklist, "blacklist", "b", c.HeaderBlacklist, "Headers to remove from the request and response")

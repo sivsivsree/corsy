@@ -19,11 +19,11 @@ Download the latest exe artifact from the Release.
 
 ```
 Options:
+  -p, --proxy string        remote address to proxy with cors [REQUIRED]
   -a, --addr string         address:port to listen on :8080  (default ":8001")
   -b, --blacklist strings   Headers to remove from the request and response
   -h, --help                Show this message
   -r, --max-redirects int   Maximum number of redirects to follow (default 10)
-  -p, --proxy string        remote address to proxy with cors
   -t, --timeout int         Request timeout (default 15)
 ```
 
@@ -31,7 +31,7 @@ Options:
  <br>
 
 ```
-corsy -a ":8080" -p https://prod.example.com/api/v1/resource
+corsy --proxy https://prod.example.com/api/v1/resource
 
 ```
 or 
