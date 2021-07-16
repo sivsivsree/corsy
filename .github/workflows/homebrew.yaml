@@ -26,7 +26,6 @@ jobs:
         with:
           distribution: goreleaser
           version: latest
-          workdir: ./cmd/corsy
           args: -f ../../.goreleaser.yml release 
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
