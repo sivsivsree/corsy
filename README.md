@@ -5,6 +5,7 @@
 
 Corsy is a proxy injector for development to avoid CORS issues while building SPA applications.
 
+[![asciicast](https://asciinema.org/a/425776.svg)](https://asciinema.org/a/425776)
 
 <h4>Install</h4>
 
@@ -15,6 +16,8 @@ Corsy is a proxy injector for development to avoid CORS issues while building SP
 ```
 
 If windows Download the latest exe artifact from the [Release Page](https://github.com/sivsivsree/corsy/releases).
+
+
 
 <b>Usage: </b>
 
