@@ -4,7 +4,9 @@ name: Releaser
 
 on:
  workflow_dispatch:
-
+ release:
+   types: [created]
+   
 permissions:
   contents: write
   
