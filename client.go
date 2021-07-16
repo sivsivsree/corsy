@@ -45,6 +45,13 @@ func NewClient(logger Log, config *Config) *Client {
 
 func (c *Client) handleCORS(w http.ResponseWriter, req *http.Request) {
 
+	if req.Method == "OPTIONS" {
+		w.Header().Set("Access-Control-Allow-Origin", "*")
+		w.Header().Set("Access-Control-Allow-Methods", "GET, POST, PATCH, PUT, DELETE, OPTIONS")
+		w.Header().Set("Access-Control-Allow-Headers", "*")
+		w.WriteHeader(http.StatusOK)
+		return
+	}
 	p := strings.TrimLeft(req.URL.Path, "/")
 
 	if q := req.URL.RawQuery; q != "" {
