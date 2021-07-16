@@ -10,7 +10,7 @@ import (
 	"github.com/spf13/pflag"
 )
 
-const VERSION = "v0.0.3"
+const VERSION = "v1.0.0"
 
 func main() {
 
