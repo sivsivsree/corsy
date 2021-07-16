@@ -8,12 +8,13 @@ Corsy is a proxy injector for development to avoid CORS issues while building SP
 
 <b>Install</b>
 
-1.  Run the below to install corsy to the system
+1.  Using Homebrew tap, [Install homebrew](https://brew.sh/)
 ```sh
-   curl https://i.jpillora.com/sivsivsree/corsy! | bash
+ brew tap sivsivsree/corsy 
+ brew install sivsivsree/corsy/corsy
 ```
 
-Download the latest exe artifact from the Release.
+If windows Download the latest exe artifact from the [Release Page](https://github.com/sivsivsree/corsy/releases).
 
 <b>Usage: </b>
 
