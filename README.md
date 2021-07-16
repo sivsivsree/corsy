@@ -6,7 +6,7 @@
 Corsy is a proxy injector for development to avoid CORS issues while building SPA applications.
 
 
-<b>Install</b>
+<h4>Install</h4>
 
 1.  Using Homebrew tap, [Install homebrew](https://brew.sh/)
 ```sh
