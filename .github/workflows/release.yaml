@@ -1,31 +1,33 @@
 # .github/workflows/release.yaml
 
+name: Releaser
+
 on:
-  release:
-    types: [created]
+ workflow_dispatch:
 
-name: Build Production Artifact
-
+permissions:
+  contents: write
+  
 jobs:
-  releases-matrix:
-    name: Release Go Binary
+  goreleaser:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        # build and publish in parallel: linux/386, linux/amd64, windows/386, windows/amd64, darwin/amd64
-        goos: [linux, windows, darwin]
-        goarch: ["386", amd64]
-        exclude:
-          - goarch: "386"
-            goos: darwin
     steps:
-      - uses: actions/checkout@v2
-      - uses: wangyoucao577/go-release-action@v1.17
+      -
+        name: Checkout
+        uses: actions/checkout@v2
         with:
-          github_token: ${{ secrets.GH_TOKEN }}
-          goos: ${{ matrix.goos }}
-          project_path: "./cmd/corsy"
-          goarch: ${{ matrix.goarch }}
-          md5sum: false
-          binary_name: "corsy"
-          asset_name: corsy-${{ matrix.goos }}-${{ matrix.goarch }}
+          fetch-depth: 0
+      -
+        name: Set up Go
+        uses: actions/setup-go@v2
+        with:
+          go-version: 1.15
+      -
+        name: Run GoReleaser
+        uses: goreleaser/goreleaser-action@v2
+        with:
+          distribution: goreleaser
+          version: latest
+          args: -f .goreleaser.yml release 
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
