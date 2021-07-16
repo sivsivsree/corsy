@@ -1,3 +1,19 @@
+before:
+  hooks:
+    - go mod download
+    
+builds:
+  - main: cmd/corsy/main.go
+    goos:
+      - linux
+      - darwin
+      - windows
+      
+release:
+  github:
+    owner: sivsivsree
+    name: corsy
+    
 brews:
   -
     # Name template of the recipe
